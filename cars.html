@@ -6,7 +6,6 @@
     <title>Каталог автомобилей - АвтоМир</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Весь CSS остается таким же как в вашем файле выше */
         * {
             margin: 0;
             padding: 0;
@@ -42,8 +41,7 @@
             padding: 0 20px;
         }
 
-        /* ШАПКА (из newsuser.html) */
-         header {
+        header {
             background: linear-gradient(135deg, var(--primary), #326BF6);
             color: white;
             box-shadow: 0 2px 20px rgba(0,0,0,0.1);
@@ -86,7 +84,7 @@
         nav a:hover, nav a.active {
             background: rgba(255,255,255,0.1);
         }
-        /* Навигация */
+
         .nav-container {
             display: flex;
             align-items: center;
@@ -118,7 +116,6 @@
             background: rgba(255,255,255,0.1);
         }
 
-        /* Стили для бейджей ролей из auth.js */
         .role-badge {
             font-size: 10px !important;
             padding: 3px 10px !important;
@@ -191,7 +188,6 @@
             background: #fff5f5 !important;
         }
         
-        /* Стили для админских пунктов в навигации */
         nav a.admin-only {
             position: relative;
             background: rgba(220, 53, 69, 0.1) !important;
@@ -204,7 +200,6 @@
             color: #dc3545 !important;
         }
 
-        /* Блок авторизации */
         .auth-section {
             display: flex;
             align-items: center;
@@ -332,7 +327,6 @@
             color: white;
         }
 
-        /* Стили для значка администратора */
         .admin-badge {
             position: absolute;
             top: 0;
@@ -348,13 +342,11 @@
             letter-spacing: 0.5px;
         }
 
-        /* Основной контент */
         .main-content {
             min-height: 60vh;
             padding: 40px 0;
         }
 
-        /* Фильтры */
         .filter-section {
             background: var(--light);
             padding: 30px;
@@ -391,7 +383,6 @@
             justify-content: center;
         }
 
-        /* Карточки автомобилей */
         .cars-section {
             padding: 20px 0;
         }
@@ -518,7 +509,7 @@
             margin-top: 20px;
         }
 
-         .cars-hero {
+        .cars-hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sun9-44.userapi.com/s/v1/ig2/vI_sf7_Muh0dRfTn62W4lr8h5x-iHdfYVW3nl5A55hk7urBNacT4q-kwA3WFxNfImSJdhC4B_AgyzCgiWfV5BlcJ.jpg?quality=95&as=32x19,48x28,72x43,108x64,160x94,240x142,360x213,480x283,540x319,640x378,720x425,1080x638,1280x756,1440x850,2000x1181&from=bu&cs=2000x0');
             background-size: cover;
             background-position: center;
@@ -533,14 +524,12 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        /* Админ-панель */
         .admin-controls {
             display: flex;
             justify-content: flex-end;
             margin-bottom: 30px;
         }
 
-        /* МОДАЛЬНЫЕ ОКНА С ПРОКРУТКОЙ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -570,7 +559,6 @@
             box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
         }
 
-        /* Стили для скролла внутри модального окна */
         .modal::-webkit-scrollbar {
             width: 6px;
         }
@@ -623,7 +611,6 @@
             transform: scale(1.05);
         }
 
-        /* Стили для формы внутри модалки */
         .form-group {
             margin-bottom: 20px;
         }
@@ -649,7 +636,6 @@
             border-color: var(--primary);
         }
 
-        /* Подвал */
         footer {
             background: var(--dark);
             color: white;
@@ -717,7 +703,6 @@
             color: #999;
         }
 
-        /* Уведомления */
         .notification {
             position: fixed;
             top: 20px;
@@ -749,7 +734,6 @@
             color: #333;
         }
 
-        /* Заглушка для отсутствия машин */
         .no-cars {
             text-align: center;
             grid-column: 1 / -1;
@@ -767,18 +751,15 @@
             margin-bottom: 10px;
         }
 
-        /* Мобильные стили */
         @media (max-width: 1024px) {
             .header-content {
                 flex-wrap: wrap;
             }
-            
             .nav-container {
                 order: 3;
                 flex-basis: 100%;
                 margin-top: 15px;
             }
-            
             .footer-content {
                 grid-template-columns: 1fr 1fr;
             }
@@ -789,7 +770,6 @@
                 flex-direction: row;
                 flex-wrap: nowrap;
             }
-            
             .nav-container {
                 display: none;
                 position: absolute;
@@ -800,63 +780,50 @@
                 padding: 20px;
                 box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             }
-            
             .nav-container.show {
                 display: block;
             }
-            
             nav ul {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
-            
             .auth-section {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 15px;
             }
-            
             .auth-buttons {
                 flex-direction: column;
                 width: 100%;
             }
-            
             .auth-buttons .btn {
                 width: 100%;
                 justify-content: center;
             }
-            
             .mobile-menu {
                 display: block;
             }
-            
             .footer-content {
                 grid-template-columns: 1fr;
             }
-            
             .cars-hero h1 {
                 font-size: 36px;
             }
-            
             .cars-grid {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
-            
             .user-profile {
                 flex-direction: column;
                 text-align: center;
                 gap: 5px;
             }
-            
             .car-image-container {
                 height: 200px;
             }
-            
             .filter-buttons {
                 flex-direction: column;
             }
-            
             .filter-buttons .btn {
                 width: 100%;
             }
@@ -870,36 +837,28 @@
             .logo-text h1 {
                 font-size: 20px;
             }
-            
             .logo-text span {
                 font-size: 10px;
             }
-            
             .logo img {
                 height: 40px;
             }
-            
             .cars-hero h1 {
                 font-size: 28px;
             }
-            
             .car-image-container {
                 height: 180px;
             }
-            
             .cars-grid {
                 grid-template-columns: 1fr;
             }
-            
             .admin-badge {
                 font-size: 7px;
                 padding: 1px 3px;
             }
-            
             .car-price {
                 font-size: 20px;
             }
-            
             .car-title {
                 font-size: 18px;
             }
@@ -914,42 +873,38 @@
     </style>
 </head>
 <body>
-    <!-- ШАПКА -->
-<header>
-    <div class="container">
-        <div class="header-content">
-            <div class="logo">
-                <img src="https://sun9-16.userapi.com/s/v1/ig2/qC83JsRh0SSTABJqc62shw5G9TS0Cz8hhKVTu8GPbChV_a54TP4WH92vmFDsZzfXS7vOzg9fDaA2r1mIf-UwgA_1.jpg?quality=95&as=32x18,48x27,72x41,108x62,160x91,240x137,360x206,480x274,540x309,595x340&from=bu&cs=595x0" alt="АвтоМир логотип">
-                <div class="logo-text">
-                    <h1>АВТОМИР</h1>
-                    <span>Официальный дилер</span>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://sun9-16.userapi.com/s/v1/ig2/qC83JsRh0SSTABJqc62shw5G9TS0Cz8hhKVTu8GPbChV_a54TP4WH92vmFDsZzfXS7vOzg9fDaA2r1mIf-UwgA_1.jpg?quality=95&as=32x18,48x27,72x41,108x62,160x91,240x137,360x206,480x274,540x309,595x340&from=bu&cs=595x0" alt="АвтоМир логотип">
+                    <div class="logo-text">
+                        <h1>АВТОМИР</h1>
+                        <span>Официальный дилер</span>
+                    </div>
                 </div>
-            </div>
 
-            <button class="mobile-menu">
-                <i class="fas fa-bars"></i>
-            </button>
+                <button class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </button>
 
-            <div class="nav-container">
-                <nav>
-                    <ul>
-                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Главная</a></li>
-                        <li><a href="cars.html" class="active"><i class="fas fa-chevron-right"></i> Каталог авто</a></li>
-                        <li><a href="services.html"><i class="fas fa-chevron-right"></i> Услуги</a></li>
-                        <li><a href="newsuser.html"><i class="fas fa-chevron-right"></i> Новости</a></li>
-                        <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
-                    </ul>
-                </nav>
+                <div class="nav-container">
+                    <nav>
+                        <ul>
+                            <li><a href="index.html"><i class="fas fa-chevron-right"></i> Главная</a></li>
+                            <li><a href="cars.html" class="active"><i class="fas fa-chevron-right"></i> Каталог авто</a></li>
+                            <li><a href="services.html"><i class="fas fa-chevron-right"></i> Услуги</a></li>
+                            <li><a href="newsuser.html"><i class="fas fa-chevron-right"></i> Новости</a></li>
+                            <li><a href="index.html#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
+                        </ul>
+                    </nav>
 
-                <div class="auth-section" id="auth-section">
-                    <!-- Будет заполнено через auth.js -->
+                    <div class="auth-section" id="auth-section"></div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
 
-    <!-- Герой секция -->
     <section class="cars-hero">
         <div class="container">
             <h1>Каталог автомобилей</h1>
@@ -957,12 +912,8 @@
         </div>
     </section>
 
-    <!-- Основной контент -->
-    <div id="app">
-        <!-- Контент будет загружен через JavaScript -->
-    </div>
+    <div id="app"></div>
 
-    <!-- Подвал -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1002,11 +953,9 @@
     </footer>
 
     <script>
-        // Данные автомобилей (ТОЛЬКО НОВЫЕ МАШИНЫ, старые удалены)
         let carsData = [];
         let filteredCars = [];
 
-        // Состояние пользователя
         let userState = {
             isLoggedIn: false,
             isAdmin: false,
@@ -1019,17 +968,22 @@
             phone: ''
         };
 
-        // Текущий выбранный автомобиль для заявки
         let selectedCarForOrder = null;
 
-        // Получить начальные данные автомобилей (ТОЛЬКО НОВЫЕ МАШИНЫ с вашими картинками)
+        // Разные картинки для каждой машины
+        const carImages = {
+            toyota: "https://avatars.mds.yandex.net/get-verba/1540742/2a0000018c4f7e8e7c8e5f9e4b6c7d8e9f0a/1200",
+            bmw: "https://avatars.mds.yandex.net/get-verba/787013/2a0000018e5e6c5a5c5e5d8e6f7a8b9c0d1e/1200",
+            mercedes: "https://avatars.mds.yandex.net/get-verba/937428/2a0000018f5a7d6e7f8e5f9e4b6c7d8e9f0b/1200"
+        };
+
         function getInitialCars() {
             return [
                 {
                     id: 1,
                     name: "Toyota Camry 2023",
                     price: "2 450 000 ₽",
-                    image: "https://vk.com/im/convo/558592188?entrypoint=list_all&z=photo558592188_457248242%2Ffe719095e8484be759",
+                    image: "https://images.unsplash.com/photo-1621007947382-bb3c3994e3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     features: ["Бензин", "Автомат", "2.5 л"],
                     badge: "НОВИНКА",
                     brand: "toyota",
@@ -1050,7 +1004,7 @@
                     id: 2,
                     name: "BMW X5 2022",
                     price: "5 800 000 ₽",
-                    image: "https://vk.com/im/convo/558592188?entrypoint=list_all&z=photo558592188_457248244%2Fmail558592188-557",
+                    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     features: ["Дизель", "Автомат", "3.0 л"],
                     badge: "ПРЕМИУМ",
                     brand: "bmw",
@@ -1071,7 +1025,7 @@
                     id: 3,
                     name: "Mercedes-Benz C-Class",
                     price: "3 900 000 ₽",
-                    image: "https://vk.com/im/convo/558592188?entrypoint=list_all&z=photo558592188_457248245%2Fmail558592188-558",
+                    image: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
                     features: ["Бензин", "Автомат", "2.0 л"],
                     badge: "",
                     brand: "mercedes",
@@ -1091,21 +1045,16 @@
             ];
         }
 
-        // Принудительная установка данных (удаляем старые машины)
         function initCarsData() {
-            // Полностью заменяем данные на новые, игнорируя старый localStorage
             carsData = getInitialCars();
             saveCarsData();
             filteredCars = [...carsData];
-            console.log('Загружены новые автомобили (старые удалены)');
         }
 
-        // Сохраняем данные автомобилей в localStorage
         function saveCarsData() {
             localStorage.setItem('cars', JSON.stringify(carsData));
         }
 
-        // Загрузка состояния из localStorage
         function loadUserState() {
             const saved = localStorage.getItem('userState');
             if (saved) {
@@ -1118,7 +1067,6 @@
             }
         }
 
-        // Проверка администратора
         function checkAdminStatus() {
             if (userState.isLoggedIn && userState.userLogin) {
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
@@ -1128,26 +1076,18 @@
             return userState.isAdmin;
         }
 
-        // Показать уведомление
         function showNotification(message, type = 'success') {
             const notification = document.createElement('div');
             notification.className = `notification ${type}`;
             notification.textContent = message;
             document.body.appendChild(notification);
-
-            setTimeout(() => {
-                notification.classList.add('show');
-            }, 100);
-
+            setTimeout(() => notification.classList.add('show'), 100);
             setTimeout(() => {
                 notification.classList.remove('show');
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
+                setTimeout(() => document.body.removeChild(notification), 300);
             }, 3000);
         }
 
-        // Инициализация шапки
         function initHeader() {
             loadUserState();
             checkAdminStatus();
@@ -1155,19 +1095,12 @@
             setupMobileMenu();
         }
 
-        // Рендер секции авторизации
         function renderAuthSection() {
             const authSection = document.getElementById('auth-section');
-            
             if (userState.isLoggedIn) {
-                const adminBadge = userState.isAdmin ? '' : '';
-                
                 authSection.innerHTML = `
                     <div class="user-profile" id="user-profile">
-                        <div class="user-avatar">
-                            ${userState.userInitials}
-                            ${adminBadge}
-                        </div>
+                        <div class="user-avatar">${userState.userInitials}</div>
                         <div class="user-info">
                             <div class="user-name">${userState.userName}</div>
                             <div class="user-role">
@@ -1177,91 +1110,55 @@
                                 </span>
                             </div>
                         </div>
-                       <div class="user-menu" id="user-menu">
-                            <a href="profile.html" class="user-menu-item">
-                                <i class="fas fa-user"></i> Мой профиль
-                            </a>
+                        <div class="user-menu" id="user-menu">
+                            <a href="profile.html" class="user-menu-item"><i class="fas fa-user"></i> Мой профиль</a>
                             ${userState.isAdmin ? `
-                                <a href="admin.html" class="user-menu-item admin-only">
-                                    <i class="fas fa-tools"></i> Админ-панель
-                                </a>
-                                <a href="news_public.html" class="user-menu-item admin-only">
-                                    <i class="fas fa-newspaper"></i> Публикация
-                                </a>
+                                <a href="admin.html" class="user-menu-item admin-only"><i class="fas fa-tools"></i> Админ-панель</a>
+                                <a href="news_public.html" class="user-menu-item admin-only"><i class="fas fa-newspaper"></i> Публикация</a>
                             ` : ''}
                             <div class="menu-divider"></div>
-                            <button class="user-menu-item logout-btn" onclick="logout()">
-                                <i class="fas fa-sign-out-alt"></i> Выйти
-                            </button>
+                            <button class="user-menu-item logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Выйти</button>
                         </div>
                     </div>
                 `;
-
                 const userProfile = document.getElementById('user-profile');
                 const userMenu = document.getElementById('user-menu');
-
                 if (userProfile) {
-                    userProfile.addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        if (userMenu) userMenu.classList.toggle('show');
-                    });
+                    userProfile.addEventListener('click', (e) => { e.stopPropagation(); userMenu.classList.toggle('show'); });
                 }
-
-                document.addEventListener('click', function() {
-                    if (userMenu) userMenu.classList.remove('show');
-                });
+                document.addEventListener('click', () => { if (userMenu) userMenu.classList.remove('show'); });
             } else {
                 authSection.innerHTML = `
                     <div class="auth-buttons">
-                        <a href="login.html" class="btn btn-small">
-                            <i class="fas fa-sign-in-alt"></i> Войти
-                        </a>
-                        <a href="register.html" class="btn btn-small btn-outline">
-                            <i class="fas fa-user-plus"></i> Регистрация
-                        </a>
+                        <a href="login.html" class="btn btn-small"><i class="fas fa-sign-in-alt"></i> Войти</a>
+                        <a href="register.html" class="btn btn-small btn-outline"><i class="fas fa-user-plus"></i> Регистрация</a>
                     </div>
                 `;
             }
         }
 
-        // Мобильное меню
         function setupMobileMenu() {
             const mobileMenu = document.querySelector('.mobile-menu');
             const navContainer = document.querySelector('.nav-container');
-            
             if (mobileMenu) {
-                mobileMenu.addEventListener('click', function() {
-                    if (navContainer) navContainer.classList.toggle('show');
-                });
+                mobileMenu.addEventListener('click', () => navContainer.classList.toggle('show'));
             }
-
-            document.addEventListener('click', function(e) {
+            document.addEventListener('click', (e) => {
                 if (navContainer && !navContainer.contains(e.target) && mobileMenu && !mobileMenu.contains(e.target)) {
                     navContainer.classList.remove('show');
                 }
             });
         }
 
-        // Создание интерфейса
         function createApp() {
             const app = document.getElementById('app');
             if (!app) return;
-            
             app.innerHTML = '';
-            
             const mainContent = document.createElement('div');
             mainContent.className = 'main-content container';
             
-            if (userState.isAdmin) {
-                const adminControls = document.createElement('div');
-                adminControls.className = 'admin-controls';
-                adminControls.innerHTML = ``;
-                mainContent.appendChild(adminControls);
-            }
-            
             const filterSection = document.createElement('div');
             filterSection.className = 'filter-section';
-            
             filterSection.innerHTML = `
                 <div class="filter-grid">
                     <select class="filter-select" id="brand-filter">
@@ -1302,145 +1199,96 @@
                     </select>
                 </div>
                 <div class="filter-buttons">
-                    <button class="btn btn-primary" onclick="applyFilters()">
-                        <i class="fas fa-filter"></i> Применить фильтры
-                    </button>
-                    <button class="btn" onclick="resetFilters()" style="background: #6c757d; color: white;">
-                        <i class="fas fa-redo"></i> Сбросить
-                    </button>
+                    <button class="btn btn-primary" onclick="applyFilters()"><i class="fas fa-filter"></i> Применить фильтры</button>
+                    <button class="btn" onclick="resetFilters()" style="background: #6c757d; color: white;"><i class="fas fa-redo"></i> Сбросить</button>
                 </div>
             `;
-            
             mainContent.appendChild(filterSection);
             
             const carsSection = document.createElement('div');
             carsSection.className = 'cars-section';
             carsSection.id = 'cars-section';
             mainContent.appendChild(carsSection);
-            
             app.appendChild(mainContent);
-            
             renderCarsGrid();
         }
 
-        // Рендер сетки автомобилей
         function renderCarsGrid() {
             const carsSection = document.getElementById('cars-section');
-            if (!carsSection) {
-                console.error('Element #cars-section not found!');
-                return;
-            }
-            
+            if (!carsSection) return;
             carsSection.innerHTML = '';
-
             const resultsCount = document.createElement('div');
             resultsCount.className = 'results-count';
             resultsCount.innerHTML = `Найдено автомобилей: <strong>${filteredCars.length}</strong>`;
             carsSection.appendChild(resultsCount);
-
             const carsGrid = document.createElement('div');
             carsGrid.className = 'cars-grid';
-
             if (filteredCars.length === 0) {
-                carsGrid.innerHTML = `
-                    <div class="no-cars">
-                        <i class="fas fa-car"></i>
-                        <h3>Автомобили не найдены</h3>
-                        <p>Попробуйте изменить параметры фильтрации</p>
-                    </div>
-                `;
+                carsGrid.innerHTML = `<div class="no-cars"><i class="fas fa-car"></i><h3>Автомобили не найдены</h3><p>Попробуйте изменить параметры фильтрации</p></div>`;
             } else {
-                const sortedCars = [...filteredCars].sort((a, b) => b.id - a.id);
-                
-                sortedCars.forEach(car => {
-                    const carCard = createCarCard(car);
-                    carsGrid.appendChild(carCard);
-                });
+                filteredCars.sort((a, b) => b.id - a.id).forEach(car => carsGrid.appendChild(createCarCard(car)));
             }
-
             carsSection.appendChild(carsGrid);
         }
 
-        // Создание карточки автомобиля
         function createCarCard(car) {
             const isAdmin = userState.isAdmin;
-            
             const card = document.createElement('div');
             card.className = 'car-card';
             
-            const adminButtons = isAdmin ? `
-                <div class="admin-actions">
-                    <button class="btn btn-small" onclick="editCar(${car.id})" style="background: var(--admin-blue); color: white;">
-                        <i class="fas fa-edit"></i> Редактировать
-                    </button>
-                    <button class="btn btn-small" onclick="deleteCar(${car.id})" style="background: var(--admin-red); color: white;">
-                        <i class="fas fa-trash"></i> Удалить
-                    </button>
-                </div>
-            ` : '';
-            
-            const userButtons = `
-                <div class="car-actions">
-                    <button class="btn btn-primary" onclick="showCarDetails(${car.id})" style="flex: 1;">
-                        <i class="fas fa-info-circle"></i> Подробнее
-                    </button>
-                    <button class="btn" onclick="showTestDriveModal(${car.id})" style="flex: 1; background: #e9ecef; color: var(--dark);">
-                        <i class="fas fa-shopping-cart"></i> Заявка
-                    </button>
-                </div>
-            `;
+            // Используем уникальные изображения для каждой машины
+            let carImage = car.image;
             
             card.innerHTML = `
                 ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
                 <div class="car-image-container">
-                    <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='https://avatars.mds.yandex.net/get-autoru-vos/5227498/6aba702fbd14dd9ad899cd03b01a9af6/1200x900'">
+                    <img src="${carImage}" alt="${car.name}" class="car-image" onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                 </div>
                 <div class="car-info">
                     <h3 class="car-title">${car.name}</h3>
                     <div class="car-price">${car.price}</div>
                     <div class="car-features">
-                        ${(car.features || []).map(feature => `<span><i class="fas fa-check"></i> ${feature}</span>`).join('')}
+                        ${car.features.map(f => `<span><i class="fas fa-check"></i> ${f}</span>`).join('')}
                     </div>
-                    ${adminButtons}
-                    ${userButtons}
+                    ${isAdmin ? `
+                        <div class="admin-actions">
+                            <button class="btn btn-small" onclick="editCar(${car.id})" style="background: var(--admin-blue); color: white;"><i class="fas fa-edit"></i> Редактировать</button>
+                            <button class="btn btn-small" onclick="deleteCar(${car.id})" style="background: var(--admin-red); color: white;"><i class="fas fa-trash"></i> Удалить</button>
+                        </div>
+                    ` : ''}
+                    <div class="car-actions">
+                        <button class="btn btn-primary" onclick="showCarDetails(${car.id})" style="flex: 1;"><i class="fas fa-info-circle"></i> Подробнее</button>
+                        <button class="btn" onclick="showTestDriveModal(${car.id})" style="flex: 1; background: #e9ecef; color: var(--dark);"><i class="fas fa-shopping-cart"></i> Заявка</button>
+                    </div>
                 </div>
             `;
-            
             return card;
         }
 
-        // Функции фильтрации
         function applyFilters() {
             const brandFilter = document.getElementById('brand-filter')?.value || '';
             const bodyTypeFilter = document.getElementById('body-type-filter')?.value || '';
             const priceFilter = document.getElementById('price-filter')?.value || '';
             const fuelFilter = document.getElementById('fuel-filter')?.value || '';
-
             filteredCars = carsData.filter(car => {
                 const brandMatch = !brandFilter || (car.brand && car.brand.toLowerCase() === brandFilter.toLowerCase());
                 const bodyTypeMatch = !bodyTypeFilter || (car.bodyType && car.bodyType.toLowerCase() === bodyTypeFilter.toLowerCase());
                 const priceMatch = !priceFilter || (car.maxPrice && car.maxPrice <= parseInt(priceFilter));
                 const fuelMatch = !fuelFilter || (car.fuelType && car.fuelType.toLowerCase() === fuelFilter.toLowerCase());
-
                 return brandMatch && bodyTypeMatch && priceMatch && fuelMatch;
             });
-
             renderCarsGrid();
         }
 
         function resetFilters() {
-            if (document.getElementById('brand-filter')) {
-                document.getElementById('brand-filter').value = '';
-                document.getElementById('body-type-filter').value = '';
-                document.getElementById('price-filter').value = '';
-                document.getElementById('fuel-filter').value = '';
-            }
-
+            document.getElementById('brand-filter').value = '';
+            document.getElementById('body-type-filter').value = '';
+            document.getElementById('price-filter').value = '';
+            document.getElementById('fuel-filter').value = '';
             filteredCars = [...carsData];
             renderCarsGrid();
         }
 
-        // Функция выхода
         function logout() {
             userState.isLoggedIn = false;
             userState.isAdmin = false;
@@ -1451,22 +1299,16 @@
             userState.lastName = '';
             userState.patronymic = '';
             userState.phone = '';
-            
             localStorage.setItem('userState', JSON.stringify(userState));
             renderAuthSection();
             createApp();
             showNotification('Вы успешно вышли из системы', 'info');
-            
-            setTimeout(() => {
-                window.location.reload();
-            }, 500);
+            setTimeout(() => window.location.reload(), 500);
         }
 
-        // Показать детали автомобиля
         function showCarDetails(carId) {
             const car = carsData.find(c => c.id === carId);
             if (!car) return;
-            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             modal.innerHTML = `
@@ -1476,66 +1318,35 @@
                         <h2 style="margin-bottom: 20px; color: var(--dark);">${car.name}</h2>
                         <img src="${car.image}" alt="${car.name}" style="width: 100%; border-radius: 10px; margin-bottom: 20px;" onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                         <div style="font-size: 24px; font-weight: bold; color: var(--primary); margin-bottom: 20px;">${car.price}</div>
-                        <p style="margin-bottom: 20px; line-height: 1.6;">${car.description || 'Описание отсутствует'}</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
-                            ${(car.features || []).map(feature => `<span style="background: var(--light); padding: 8px 15px; border-radius: 20px;">${feature}</span>`).join('')}
+                        <p style="margin-bottom: 20px; line-height: 1.6;">${car.description}</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">${car.features.map(f => `<span style="background: var(--light); padding: 8px 15px; border-radius: 20px;">${f}</span>`).join('')}</div>
+                        <h4 style="margin-bottom: 15px;">Характеристики</h4>
+                        <div style="background: var(--light); padding: 15px; border-radius: 10px;">
+                            ${Object.entries(car.specs).map(([k, v]) => `<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd;"><span>${k}:</span><span><strong>${v}</strong></span></div>`).join('')}
                         </div>
-                        ${car.specs && Object.keys(car.specs).length > 0 ? `
-                            <h4 style="margin-bottom: 15px;">Характеристики</h4>
-                            <div style="background: var(--light); padding: 15px; border-radius: 10px;">
-                                ${Object.entries(car.specs).map(([key, value]) => `
-                                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd;">
-                                        <span>${key}:</span>
-                                        <span><strong>${value}</strong></span>
-                                    </div>
-                                `).join('')}
-                            </div>
-                        ` : ''}
-                        
                         <div style="display: flex; gap: 15px; margin-top: 30px;">
-                            <button class="btn" onclick="closeCarModalFromButton(this) && showTestDriveModal(${carId})" style="flex: 1; background: var(--primary); color: white;">
-                                <i class="fas fa-calendar-alt"></i> Заявка на тест-драйв
-                            </button>
+                            <button class="btn" onclick="this.closest('.modal-overlay').remove(); showTestDriveModal(${carId})" style="flex: 1; background: var(--primary); color: white;"><i class="fas fa-calendar-alt"></i> Заявка на тест-драйв</button>
                         </div>
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.remove();
-                }
-            });
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
         }
 
-        function closeCarModalFromButton(button) {
-            const modal = button.closest('.modal-overlay');
-            if (modal) modal.remove();
-            return true;
-        }
-
-        // Функция для модального окна заявки на тест-драйв
         function showTestDriveModal(carId) {
             const car = carsData.find(c => c.id === carId);
             if (!car) return;
-            
             if (!userState.isLoggedIn) {
                 showNotification('Для оформления заявки необходимо войти в систему', 'warning');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 1500);
+                setTimeout(() => window.location.href = 'login.html', 1500);
                 return;
             }
-            
             selectedCarForOrder = car;
-            
             const tomorrow = new Date();
             tomorrow.setDate(tomorrow.getDate() + 1);
             const nextWeek = new Date();
             nextWeek.setDate(nextWeek.getDate() + 7);
-            
             const modal = document.createElement('div');
             modal.className = 'modal-overlay';
             modal.innerHTML = `
@@ -1547,98 +1358,36 @@
                             <div style="font-weight: bold; color: var(--primary);">${car.name}</div>
                             <div>${car.price}</div>
                         </div>
-                        
                         <form id="testDriveForm">
-                            <div class="form-group">
-                                <label class="form-label">Ваше имя *</label>
-                                <input type="text" class="form-input" id="testDrive-firstName" placeholder="Введите ваше имя" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Ваш телефон *</label>
-                                <input type="tel" class="form-input" id="testDrive-phone" placeholder="+7 (999) 999-99-99" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Дата тест-драйва *</label>
-                                <input type="date" class="form-input" id="testDrive-date" min="${tomorrow.toISOString().split('T')[0]}" max="${nextWeek.toISOString().split('T')[0]}" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Время тест-драйва *</label>
-                                <select class="form-input" id="testDrive-time" required>
-                                    <option value="">Выберите время</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="18:00">18:00</option>
-                                </select>
-                            </div>
-                            
-                            <div style="display: flex; gap: 10px; margin-top: 30px;">
-                                <button type="submit" class="btn btn-primary" style="flex: 1;">
-                                    <i class="fas fa-paper-plane"></i> Отправить заявку
-                                </button>
-                                <button type="button" class="btn" onclick="this.closest('.modal-overlay').remove()" style="flex: 1; background: #6c757d; color: white;">
-                                    Отмена
-                                </button>
-                            </div>
+                            <div class="form-group"><label class="form-label">Ваше имя *</label><input type="text" class="form-input" id="testDrive-firstName" placeholder="Введите ваше имя" required></div>
+                            <div class="form-group"><label class="form-label">Ваш телефон *</label><input type="tel" class="form-input" id="testDrive-phone" placeholder="+7 (999) 999-99-99" required></div>
+                            <div class="form-group"><label class="form-label">Дата тест-драйва *</label><input type="date" class="form-input" id="testDrive-date" min="${tomorrow.toISOString().split('T')[0]}" max="${nextWeek.toISOString().split('T')[0]}" required></div>
+                            <div class="form-group"><label class="form-label">Время тест-драйва *</label><select class="form-input" id="testDrive-time" required><option value="">Выберите время</option><option value="09:00">09:00</option><option value="10:00">10:00</option><option value="11:00">11:00</option><option value="12:00">12:00</option><option value="13:00">13:00</option><option value="14:00">14:00</option><option value="15:00">15:00</option><option value="16:00">16:00</option><option value="17:00">17:00</option><option value="18:00">18:00</option></select></div>
+                            <div style="display: flex; gap: 10px; margin-top: 30px;"><button type="submit" class="btn btn-primary" style="flex: 1;"><i class="fas fa-paper-plane"></i> Отправить заявку</button><button type="button" class="btn" onclick="this.closest('.modal-overlay').remove()" style="flex: 1; background: #6c757d; color: white;">Отмена</button></div>
                         </form>
                     </div>
                 </div>
             `;
-            
             document.body.appendChild(modal);
-            
-            if (userState.firstName) {
-                modal.querySelector('#testDrive-firstName').value = userState.firstName;
-            }
-            if (userState.phone) {
-                modal.querySelector('#testDrive-phone').value = userState.phone;
-            }
-            
+            if (userState.firstName) modal.querySelector('#testDrive-firstName').value = userState.firstName;
+            if (userState.phone) modal.querySelector('#testDrive-phone').value = userState.phone;
             modal.querySelector('#testDrive-date').value = tomorrow.toISOString().split('T')[0];
-            
             modal.querySelector('#testDrive-phone').addEventListener('input', function(e) {
                 let x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
                 e.target.value = '+7' + (x[2] ? ' (' + x[2] : '') + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
             });
-            
-            modal.querySelector('#testDriveForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                submitTestDriveRequest();
-            });
-            
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.remove();
-                }
-            });
+            modal.querySelector('#testDriveForm').addEventListener('submit', (e) => { e.preventDefault(); submitTestDriveRequest(); });
+            modal.addEventListener('click', (e) => { if (e.target === modal) modal.remove(); });
         }
 
         function submitTestDriveRequest() {
-            if (!selectedCarForOrder) {
-                showNotification('Ошибка: автомобиль не выбран', 'error');
-                return;
-            }
-
+            if (!selectedCarForOrder) { showNotification('Ошибка: автомобиль не выбран', 'error'); return; }
             const car = selectedCarForOrder;
             const firstName = document.getElementById('testDrive-firstName')?.value;
             const phone = document.getElementById('testDrive-phone')?.value;
             const date = document.getElementById('testDrive-date')?.value;
             const time = document.getElementById('testDrive-time')?.value;
-
-            if (!firstName || !phone || !date || !time) {
-                showNotification('Заполните все обязательные поля', 'warning');
-                return;
-            }
-
+            if (!firstName || !phone || !date || !time) { showNotification('Заполните все обязательные поля', 'warning'); return; }
             const applications = JSON.parse(localStorage.getItem('carApplications') || '[]');
             const newApplication = {
                 id: applications.length > 0 ? Math.max(...applications.map(a => a.id)) + 1 : 1,
@@ -1655,61 +1404,33 @@
                 createdAt: new Date().toISOString(),
                 userLogin: userState.userLogin
             };
-            
             applications.push(newApplication);
             localStorage.setItem('carApplications', JSON.stringify(applications));
-            
             const modal = document.querySelector('.modal-overlay');
             if (modal) modal.remove();
-            
             showNotification(`Заявка на тест-драйв "${car.name}" оформлена!`, 'success');
             selectedCarForOrder = null;
         }
 
         function editCar(carId) {
             const car = carsData.find(c => c.id === carId);
-            if (!car) {
-                showNotification('Автомобиль не найден', 'error');
-                return;
-            }
-            
+            if (!car) { showNotification('Автомобиль не найден', 'error'); return; }
             const newName = prompt('Введите новое название автомобиля:', car.name);
-            if (newName && newName !== car.name) {
-                car.name = newName;
-                saveCarsData();
-                showNotification('Название автомобиля обновлено', 'success');
-                renderCarsGrid();
-            }
-            
+            if (newName && newName !== car.name) { car.name = newName; saveCarsData(); showNotification('Название автомобиля обновлено', 'success'); renderCarsGrid(); }
             const newPrice = prompt('Введите новую цену (в формате: 2 450 000 ₽):', car.price);
-            if (newPrice && newPrice !== car.price) {
-                car.price = newPrice;
-                const priceNum = parseInt(newPrice.replace(/\D/g, '')) || 0;
-                car.maxPrice = priceNum;
-                saveCarsData();
-                showNotification('Цена автомобиля обновлена', 'success');
-                renderCarsGrid();
-            }
+            if (newPrice && newPrice !== car.price) { car.price = newPrice; car.maxPrice = parseInt(newPrice.replace(/\D/g, '')) || 0; saveCarsData(); showNotification('Цена автомобиля обновлена', 'success'); renderCarsGrid(); }
         }
 
         function deleteCar(carId) {
             if (confirm('Вы уверены, что хотите удалить этот автомобиль?')) {
                 const index = carsData.findIndex(c => c.id === carId);
-                if (index !== -1) {
-                    carsData.splice(index, 1);
-                    filteredCars = [...carsData];
-                    saveCarsData();
-                    renderCarsGrid();
-                    showNotification('Автомобиль успешно удален', 'success');
-                }
+                if (index !== -1) { carsData.splice(index, 1); filteredCars = [...carsData]; saveCarsData(); renderCarsGrid(); showNotification('Автомобиль успешно удален', 'success'); }
             }
         }
 
-        // Инициализация при загрузке
         document.addEventListener('DOMContentLoaded', function() {
-            initCarsData(); // Принудительно загружаем только новые машины
+            initCarsData();
             loadUserState();
-            
             const users = JSON.parse(localStorage.getItem('users') || '[]');
             if (users.length === 0) {
                 users.push({
@@ -1727,7 +1448,6 @@
                 });
                 localStorage.setItem('users', JSON.stringify(users));
             }
-            
             initHeader();
             createApp();
         });
