@@ -970,13 +970,7 @@
 
         let selectedCarForOrder = null;
 
-        // Разные картинки для каждой машины
-        const carImages = {
-            toyota: "https://avatars.mds.yandex.net/get-verba/1540742/2a0000018c4f7e8e7c8e5f9e4b6c7d8e9f0a/1200",
-            bmw: "https://avatars.mds.yandex.net/get-verba/787013/2a0000018e5e6c5a5c5e5d8e6f7a8b9c0d1e/1200",
-            mercedes: "https://avatars.mds.yandex.net/get-verba/937428/2a0000018f5a7d6e7f8e5f9e4b6c7d8e9f0b/1200"
-        };
-
+        // РАЗНЫЕ КАРТИНКИ ДЛЯ КАЖДОГО АВТОМОБИЛЯ (уникальные URL для каждой машины)
         function getInitialCars() {
             return [
                 {
@@ -1046,9 +1040,11 @@
         }
 
         function initCarsData() {
+            // Полностью заменяем данные на новые
             carsData = getInitialCars();
             saveCarsData();
             filteredCars = [...carsData];
+            console.log('Загружены автомобили с уникальными картинками для каждого');
         }
 
         function saveCarsData() {
@@ -1226,7 +1222,11 @@
             if (filteredCars.length === 0) {
                 carsGrid.innerHTML = `<div class="no-cars"><i class="fas fa-car"></i><h3>Автомобили не найдены</h3><p>Попробуйте изменить параметры фильтрации</p></div>`;
             } else {
-                filteredCars.sort((a, b) => b.id - a.id).forEach(car => carsGrid.appendChild(createCarCard(car)));
+                const sortedCars = [...filteredCars].sort((a, b) => b.id - a.id);
+                sortedCars.forEach(car => {
+                    const carCard = createCarCard(car);
+                    carsGrid.appendChild(carCard);
+                });
             }
             carsSection.appendChild(carsGrid);
         }
@@ -1236,8 +1236,30 @@
             const card = document.createElement('div');
             card.className = 'car-card';
             
-            // Используем уникальные изображения для каждой машины
-            let carImage = car.image;
+            // Используем уникальное изображение из данных автомобиля
+            const carImage = car.image;
+            
+            const adminButtons = isAdmin ? `
+                <div class="admin-actions">
+                    <button class="btn btn-small" onclick="editCar(${car.id})" style="background: var(--admin-blue); color: white;">
+                        <i class="fas fa-edit"></i> Редактировать
+                    </button>
+                    <button class="btn btn-small" onclick="deleteCar(${car.id})" style="background: var(--admin-red); color: white;">
+                        <i class="fas fa-trash"></i> Удалить
+                    </button>
+                </div>
+            ` : '';
+            
+            const userButtons = `
+                <div class="car-actions">
+                    <button class="btn btn-primary" onclick="showCarDetails(${car.id})" style="flex: 1;">
+                        <i class="fas fa-info-circle"></i> Подробнее
+                    </button>
+                    <button class="btn" onclick="showTestDriveModal(${car.id})" style="flex: 1; background: #e9ecef; color: var(--dark);">
+                        <i class="fas fa-shopping-cart"></i> Заявка
+                    </button>
+                </div>
+            `;
             
             card.innerHTML = `
                 ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
@@ -1248,20 +1270,13 @@
                     <h3 class="car-title">${car.name}</h3>
                     <div class="car-price">${car.price}</div>
                     <div class="car-features">
-                        ${car.features.map(f => `<span><i class="fas fa-check"></i> ${f}</span>`).join('')}
+                        ${(car.features || []).map(feature => `<span><i class="fas fa-check"></i> ${feature}</span>`).join('')}
                     </div>
-                    ${isAdmin ? `
-                        <div class="admin-actions">
-                            <button class="btn btn-small" onclick="editCar(${car.id})" style="background: var(--admin-blue); color: white;"><i class="fas fa-edit"></i> Редактировать</button>
-                            <button class="btn btn-small" onclick="deleteCar(${car.id})" style="background: var(--admin-red); color: white;"><i class="fas fa-trash"></i> Удалить</button>
-                        </div>
-                    ` : ''}
-                    <div class="car-actions">
-                        <button class="btn btn-primary" onclick="showCarDetails(${car.id})" style="flex: 1;"><i class="fas fa-info-circle"></i> Подробнее</button>
-                        <button class="btn" onclick="showTestDriveModal(${car.id})" style="flex: 1; background: #e9ecef; color: var(--dark);"><i class="fas fa-shopping-cart"></i> Заявка</button>
-                    </div>
+                    ${adminButtons}
+                    ${userButtons}
                 </div>
             `;
+            
             return card;
         }
 
@@ -1281,10 +1296,12 @@
         }
 
         function resetFilters() {
-            document.getElementById('brand-filter').value = '';
-            document.getElementById('body-type-filter').value = '';
-            document.getElementById('price-filter').value = '';
-            document.getElementById('fuel-filter').value = '';
+            if (document.getElementById('brand-filter')) {
+                document.getElementById('brand-filter').value = '';
+                document.getElementById('body-type-filter').value = '';
+                document.getElementById('price-filter').value = '';
+                document.getElementById('fuel-filter').value = '';
+            }
             filteredCars = [...carsData];
             renderCarsGrid();
         }
@@ -1318,14 +1335,25 @@
                         <h2 style="margin-bottom: 20px; color: var(--dark);">${car.name}</h2>
                         <img src="${car.image}" alt="${car.name}" style="width: 100%; border-radius: 10px; margin-bottom: 20px;" onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                         <div style="font-size: 24px; font-weight: bold; color: var(--primary); margin-bottom: 20px;">${car.price}</div>
-                        <p style="margin-bottom: 20px; line-height: 1.6;">${car.description}</p>
-                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">${car.features.map(f => `<span style="background: var(--light); padding: 8px 15px; border-radius: 20px;">${f}</span>`).join('')}</div>
-                        <h4 style="margin-bottom: 15px;">Характеристики</h4>
-                        <div style="background: var(--light); padding: 15px; border-radius: 10px;">
-                            ${Object.entries(car.specs).map(([k, v]) => `<div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd;"><span>${k}:</span><span><strong>${v}</strong></span></div>`).join('')}
+                        <p style="margin-bottom: 20px; line-height: 1.6;">${car.description || 'Описание отсутствует'}</p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px;">
+                            ${(car.features || []).map(feature => `<span style="background: var(--light); padding: 8px 15px; border-radius: 20px;">${feature}</span>`).join('')}
                         </div>
+                        ${car.specs && Object.keys(car.specs).length > 0 ? `
+                            <h4 style="margin-bottom: 15px;">Характеристики</h4>
+                            <div style="background: var(--light); padding: 15px; border-radius: 10px;">
+                                ${Object.entries(car.specs).map(([key, value]) => `
+                                    <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #ddd;">
+                                        <span>${key}:</span>
+                                        <span><strong>${value}</strong></span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        ` : ''}
                         <div style="display: flex; gap: 15px; margin-top: 30px;">
-                            <button class="btn" onclick="this.closest('.modal-overlay').remove(); showTestDriveModal(${carId})" style="flex: 1; background: var(--primary); color: white;"><i class="fas fa-calendar-alt"></i> Заявка на тест-драйв</button>
+                            <button class="btn" onclick="this.closest('.modal-overlay').remove(); showTestDriveModal(${carId})" style="flex: 1; background: var(--primary); color: white;">
+                                <i class="fas fa-calendar-alt"></i> Заявка на тест-драйв
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1419,6 +1447,8 @@
             if (newName && newName !== car.name) { car.name = newName; saveCarsData(); showNotification('Название автомобиля обновлено', 'success'); renderCarsGrid(); }
             const newPrice = prompt('Введите новую цену (в формате: 2 450 000 ₽):', car.price);
             if (newPrice && newPrice !== car.price) { car.price = newPrice; car.maxPrice = parseInt(newPrice.replace(/\D/g, '')) || 0; saveCarsData(); showNotification('Цена автомобиля обновлена', 'success'); renderCarsGrid(); }
+            const newImage = prompt('Введите новый URL изображения:', car.image);
+            if (newImage && newImage !== car.image) { car.image = newImage; saveCarsData(); showNotification('Изображение автомобиля обновлено', 'success'); renderCarsGrid(); }
         }
 
         function deleteCar(carId) {
