@@ -970,7 +970,8 @@
 
         let selectedCarForOrder = null;
 
-        // РАЗНЫЕ КАРТИНКИ ДЛЯ КАЖДОГО АВТОМОБИЛЯ (уникальные URL для каждой машины)
+        // Автомобили с уникальными изображениями
+        // Для BMW X5 используется локальное изображение из папки image/bmw_x5.jpg
         function getInitialCars() {
             return [
                 {
@@ -997,22 +998,32 @@
                 {
                     id: 2,
                     name: "BMW X5 2022",
-                    price: "5 800 000 ₽",
-                    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+                    price: "1 500 000 ₽",
+                    image: "image/bmw_x5.jpg",
                     features: ["Дизель", "Автомат", "3.0 л"],
                     badge: "ПРЕМИУМ",
                     brand: "bmw",
                     bodyType: "suv",
                     fuelType: "diesel",
-                    maxPrice: 5800000,
-                    description: "Роскошный внедорожник премиум-класса с мощным двигателем.",
+                    maxPrice: 1500000,
+                    description: "Роскошный внедорожник премиум-класса с мощным двигателем. Официальный дилер BMW. Гарантия 3 года.",
                     specs: {
-                        "Двигатель": "3.0 л, 340 л.с.",
-                        "Коробка передач": "Автоматическая 8-ступ.",
-                        "Привод": "Полный",
-                        "Расход топлива": "9.2 л/100км",
-                        "Разгон 0-100 км/ч": "5.5 сек",
-                        "Объем багажника": "650 л"
+                        "Стоимость": "1 500 000 ₽",
+                        "Гарантия": "3 года",
+                        "Макс. скорость": "250 км/ч",
+                        "Макс. высота": "2.0 м",
+                        "Макс. ширина": "1.8 м",
+                        "Макс. длина": "4.6 м",
+                        "Макс. масса": "1.7 т",
+                        "Макс. мощность": "190 л.с.",
+                        "Макс. крутящий момент": "300 Нм",
+                        "Расход топлива": "10 л/100 км",
+                        "Макс. пробег": "50 000 км",
+                        "Срок службы": "5 лет",
+                        "Гарантия на двигатель": "3 года",
+                        "Гарантия на колеса": "3 года",
+                        "Гарантия на крышу": "3 года",
+                        "Гарантия на запчасти": "3 года"
                     }
                 },
                 {
@@ -1040,11 +1051,10 @@
         }
 
         function initCarsData() {
-            // Полностью заменяем данные на новые
             carsData = getInitialCars();
             saveCarsData();
             filteredCars = [...carsData];
-            console.log('Загружены автомобили с уникальными картинками для каждого');
+            console.log('Загружены автомобили (BMW X5 использует локальное фото из папки image/)');
         }
 
         function saveCarsData() {
@@ -1236,9 +1246,6 @@
             const card = document.createElement('div');
             card.className = 'car-card';
             
-            // Используем уникальное изображение из данных автомобиля
-            const carImage = car.image;
-            
             const adminButtons = isAdmin ? `
                 <div class="admin-actions">
                     <button class="btn btn-small" onclick="editCar(${car.id})" style="background: var(--admin-blue); color: white;">
@@ -1264,7 +1271,7 @@
             card.innerHTML = `
                 ${car.badge ? `<div class="car-badge">${car.badge}</div>` : ''}
                 <div class="car-image-container">
-                    <img src="${carImage}" alt="${car.name}" class="car-image" onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    <img src="${car.image}" alt="${car.name}" class="car-image" onerror="this.src='https://images.unsplash.com/photo-1549399542-7e3f8b79c341?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
                 </div>
                 <div class="car-info">
                     <h3 class="car-title">${car.name}</h3>
@@ -1447,8 +1454,6 @@
             if (newName && newName !== car.name) { car.name = newName; saveCarsData(); showNotification('Название автомобиля обновлено', 'success'); renderCarsGrid(); }
             const newPrice = prompt('Введите новую цену (в формате: 2 450 000 ₽):', car.price);
             if (newPrice && newPrice !== car.price) { car.price = newPrice; car.maxPrice = parseInt(newPrice.replace(/\D/g, '')) || 0; saveCarsData(); showNotification('Цена автомобиля обновлена', 'success'); renderCarsGrid(); }
-            const newImage = prompt('Введите новый URL изображения:', car.image);
-            if (newImage && newImage !== car.image) { car.image = newImage; saveCarsData(); showNotification('Изображение автомобиля обновлено', 'success'); renderCarsGrid(); }
         }
 
         function deleteCar(carId) {
